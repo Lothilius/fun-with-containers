@@ -122,3 +122,4 @@ hyper*/*
 
 # Terraform files
 .terraform*
+*.csv
