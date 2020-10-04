@@ -27,5 +27,8 @@
 ## How to Run 
 --TODO
  1. Instructions to create postgres db
- 1. Instructions to create load container
+ docker network create csv_network
+ docker build -t load_csv:latest .
+docker run -P -h load-csv01 --name load-csv01 -d --env-file env.list --network csv_network load_csv:latest 
+1. Instructions to create load container
  1. Instructions to create processing container 
