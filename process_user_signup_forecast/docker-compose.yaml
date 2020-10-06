@@ -1,0 +1,19 @@
+#docker-compose.yml (Base)
+version: '3.4'
+
+services:
+  update_user_counts:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      network: csv_network
+    ports:
+      - 8080:5432
+    env_file: env.list
+    external_links:
+      - fun-with-containers_some-postgres_1
+
+networks:
+  default:
+    external:
+      name: csv_network

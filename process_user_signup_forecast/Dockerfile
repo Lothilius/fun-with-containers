@@ -1,7 +1,7 @@
 FROM python:latest
 
 # Bundle app source
-ADD calculations /
+ADD . /
 
 # Install python requirements
 RUN pip install -r requirements.txt
