@@ -1,0 +1,23 @@
+#docker-compose.yml (Base)
+version: '3.4'
+
+services:
+  some-postgres:
+    build:
+      context: ./setup/create_db
+      dockerfile: Dockerfile
+      network: csv_network
+    ports:
+      - 5432:5432
+    env_file: ./setup/create_db/env.list
+
+  load-data:
+    build:
+      context: ./setup/load_data/
+      dockerfile: Dockerfile
+      network: csv_network
+    ports:
+      - 8088:5432
+    depends_on:
+      - some-postgres
+    env_file: ./setup/load_data/env.list
