@@ -21,3 +21,7 @@ services:
     depends_on:
       - some-postgres
     env_file: ./setup/load_data/env.list
+
+networks:
+  default:
+    name: csv_network
